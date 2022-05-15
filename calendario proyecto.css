@@ -8,6 +8,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: orange;
+    padding: 5px;
 }
 .container{
     width: 100%;
@@ -18,4 +20,25 @@
     width: 450px;
     height: 450px;
     background-color: greenyellow;
+}
+.prev{
+    cursor: pointer;
+    margin-right: auto;
+    font-size: 60px;
+}
+.next{
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 60px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.weekdays{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
 }
