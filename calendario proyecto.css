@@ -31,6 +31,9 @@
     margin-left: auto;
     font-size: 60px;
 }
+.prev:hover, .next:hover{
+    color: white;
+}
 .content{
     display: flex;
     flex-direction: column;
@@ -46,4 +49,16 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
+}
+.mdays{
+    margin: 20px 20px;
+}
+#today{
+    background-color: white;
+    width: 75%;
+    margin: auto;
+    border-radius: 40%;
+}
+#pastmonth{
+    color: gray;
 }

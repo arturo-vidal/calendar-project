@@ -42,11 +42,14 @@ function nextmonthf(){
     }
     setNewDate();
 }
-//para actualizar los valores de mes y año al avanzar o retroceder de mes
+//para actualizar los valores de mes y año al avanzar o retroceder de mes, setMonthDays actualiza los días del mes
 function setNewDate(){
     currentDate.setFullYear(currentYear, currentMonth, currentDay);
     document.getElementById("calendarMonth").textContent=months[currentMonth];
     document.getElementById("fulldate").textContent=days[currentDate.getDay()]+ " "+ currentDay+ " de "+months[currentMonth]+ " de "+currentYear;
+
+    document.getElementById("monthdays").textContent="";
+    setMonthDays(currentMonth);
 }
 //para saber cuantos días tiene cada mes
 function getTotalDays(currentMonth){
@@ -65,12 +68,20 @@ function getTotalDays(currentMonth){
         }
     }
 }
-//enumera los días del mes y los asigna al elemento div
-/*function setMonthDays(currentMonth){
+/*enumera los días dependiendo del mes, crea un nuevo div para cada día (iteración de e) dentro del div #monthdays.
+se usan las comillas ` ` para poder insertar la variable e dentro del string*/
+function setMonthDays(currentMonth){
+    for(let e=firstday(); e>0; e--){
+        document.getElementById("monthdays").innerHTML+= `<div class="mdays" id="pastmonth">${getTotalDays(currentMonth-1)-(e-1)}</div>`; 
+    }
     for(let e=1; e<=getTotalDays(currentMonth); e++){
-        document.getElementById("monthdays").innerHTML+=<div class="day">${e}</div>;
+       if(e===currentDay){
+        document.getElementById("monthdays").innerHTML+= `<div class="mdays" id="today">${e}</div>`;
+       }else{
+        document.getElementById("monthdays").innerHTML+= `<div class="mdays">${e}</div>`; 
+       }
     }
 }
-setMonthDays(currentMonth);*/
+setMonthDays(currentMonth);
 
-console.log(currentDate.setFullYear(currentYear, currentMonth, currentDay));
+console.log();
